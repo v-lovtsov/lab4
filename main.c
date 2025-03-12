@@ -72,7 +72,7 @@ int toRpn(char * expression, char * output) {
             }
             if (!isEmpty(stack))
                 pop(stack);
-                            
+
             prevtype = 4;
             isopen--;
         } else if (isOperand(token)) {
@@ -114,7 +114,7 @@ int calculateRpn(char * expression, char * string) {
         char token = expression[i];
         if (isdigit(token) || token == '.') {
             char * endptr;
-            int num = strtod(&expression[i], &endptr);
+            int num = strtol(&expression[i], &endptr, 10);
             push(stack, num);
             i = endptr - expression;
         }
